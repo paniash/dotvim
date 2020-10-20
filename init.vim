@@ -99,13 +99,22 @@ function! LightlineWordCount() abort
     return &filetype =~# '\v(tex|markdown)' ? wordcount().words . ' words' : ''
 endfunction
 
-" Python-syntax settings
+" Python settings
 let g:python_highlight_builtins = 1
 let g:python_highlight_exceptions = 1
 let g:python_highlight_doctests = 1
 let g:python_highlight_operators = 1
 let g:python_highlight_class_vars = 1
 let g:python_highlight_func_calls = 1
+
+augroup python_execute
+    au!
+    au FileType python nmap <leader>c :w! \| :!python %<CR>
+    au FileType python nmap <leader>s :SlimeSend1 ipython<CR>
+    au FileType python nmap <leader>a <Plug>SlimeLineSend
+    au FileType python xmap <leader>a <Plug>SlimeRegionSend
+    au FileType python nmap <leader>d <Plug>SlimeSendCell
+augroup END
 
 " C settings
 augroup c_execute
