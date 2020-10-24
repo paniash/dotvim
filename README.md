@@ -18,4 +18,4 @@ Fire up a vim buffer and run `:PlugInstall` to install all plugins.
 **Now you should be ready to go!**
 
 ### Contribution
-Feel free to suggest changes and make pull requests, afterall I'm no master of vim.
+Feel free to suggest changes and make pull requests, afterall I'm no master of vim. ;)
