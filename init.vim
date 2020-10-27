@@ -97,7 +97,6 @@ let g:lightline = {
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
       \              [ 'fileformat', 'fileencoding', 'filetype', 'wordcount' ] ],
-      \
       \   'left': [ [ 'mode'],
       \             [ 'filename', 'modified' ] ],
       \ },
