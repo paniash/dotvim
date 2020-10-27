@@ -20,6 +20,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
+Plug 'goerz/jupytext.vim'
 call plug#end()
 
 " Some basic stuff
@@ -37,6 +38,9 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+" Highlights regex expressions when using substitute (only works on neovim)
+set inccommand=nosplit
+
 " Assigns leader and localleader keys
 let mapleader=","
 let maplocalleader=","
@@ -46,6 +50,10 @@ let g:tex_flavor = "latex"
 let g:vimtex_view_method = "zathura"
 let g:vimtex_view_automatic = 0
 let g:vimtex_quickfix_open_on_warning = 0
+
+let g:vimtex_compiler_latexmk = {
+    \ 'continuous' : 0,
+    \}
 
 augroup vimrc_tex
     au!
@@ -88,7 +96,10 @@ let g:lightline = {
       \ 'active': {
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype', 'wordcount' ] ]
+      \              [ 'fileformat', 'fileencoding', 'filetype', 'wordcount' ] ],
+      \
+      \   'left': [ [ 'mode'],
+      \             [ 'filename', 'modified' ] ],
       \ },
       \ 'component_function': {
       \   'wordcount': 'LightlineWordCount'
@@ -106,6 +117,9 @@ let g:python_highlight_doctests = 1
 let g:python_highlight_operators = 1
 let g:python_highlight_class_vars = 1
 let g:python_highlight_func_calls = 1
+
+let g:python3_host_prog = '/usr/bin/python3'  " Sets path for python executable for faster startup
+let g:loaded_python_provider = 0  " Disables python 2 support
 
 augroup python_execute
     au!
@@ -143,12 +157,16 @@ let g:netrw_preview = 1
 
 augroup netrw_mapping
     au!
-    au FileType * nmap <buffer><silent> <C-x> :Lex<CR>
+    au FileType * nmap <buffer><silent> <leader>nn :Lex<CR>
 augroup END
 
 " Enables vim-pandoc syntax in markdown files
 augroup pandoc_syntax
     au! FileType markdown set syntax=markdown.pandoc
+augroup END
+
+augroup pandoc_ipynb
+    au! BufNewFile,BufFilePre,BufRead *.ipynb set filetype=markdown.pandoc
 augroup END
 
 " Ignore case when searching
