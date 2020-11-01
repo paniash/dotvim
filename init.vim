@@ -27,6 +27,7 @@ call plug#end()
 set termguicolors
 set nohlsearch
 set clipboard+=unnamedplus
+set mouse=a
 
 set encoding=utf-8
 set noswapfile
@@ -146,6 +147,13 @@ augroup c_execute
     au FileType c nmap <leader>l :w! \| :!splint %<CR>
 augroup END
 
+" Markdown compilation
+augroup markdown
+    au!
+    au FileType markdown nmap <leader>c :w! \| :!markcompiler <c-r>%<CR>
+    au FileType markdown nmap <leader>v :!opout <c-r>%<CR><CR>
+augroup END
+
 " Netrw settings
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -183,6 +191,18 @@ nnoremap <C-H> <C-W><C-H>
 
 " Fast saving
 nnoremap <leader>w :w<CR>
+
+" Toggle spellchecker
+function! ToggleSpellCheck()
+    set spell!
+    if &spell
+        echo "Spellcheck ON"
+    else
+        echo "Spellcheck OFF"
+    endif
+endfunction
+
+nnoremap <silent> <leader>s :call ToggleSpellCheck()<CR>
 
 " Replace all aliased to S
 nnoremap S :%s//g<Left><Left>
