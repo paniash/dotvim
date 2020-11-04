@@ -176,8 +176,10 @@ augroup pandoc_ipynb
     au! BufNewFile,BufFilePre,BufRead *.ipynb set filetype=markdown.pandoc
 augroup END
 
-" Ignore case when searching
+" Ignore case when searching but be case-sensitive when one or more UPPER case characters exist
 set ignorecase
+set smartcase
+
 
 " Split windows in a more natural way
 set splitbelow
@@ -192,6 +194,9 @@ nnoremap <C-H> <C-W><C-H>
 " Fast saving
 nnoremap <leader>w :w<CR>
 
+" Saving file with sudo privileges in regular vim
+cmap w!! w !sudo tee > /dev/null %
+
 " Toggle spellchecker
 function! ToggleSpellCheck()
     set spell!
@@ -202,7 +207,7 @@ function! ToggleSpellCheck()
     endif
 endfunction
 
-nnoremap <silent> <leader>s :call ToggleSpellCheck()<CR>
+nnoremap <silent> <leader>z :call ToggleSpellCheck()<CR>
 
 " Replace all aliased to S
 nnoremap S :%s//g<Left><Left>
