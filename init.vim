@@ -19,8 +19,6 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'itchyny/lightline.vim'
-Plug 'goerz/jupytext.vim'
 call plug#end()
 
 " Some basic stuff
@@ -90,25 +88,6 @@ augroup gruvbox_colors
 augroup END
 
 colorscheme gruvbox
-
-" Lightline settings
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
-      \ 'active': {
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype', 'wordcount' ] ],
-      \   'left': [ [ 'mode'],
-      \             [ 'filename', 'modified' ] ],
-      \ },
-      \ 'component_function': {
-      \   'wordcount': 'LightlineWordCount'
-      \ },
-      \ }
-
-function! LightlineWordCount() abort
-    return &filetype =~# '\v(tex|markdown)' ? wordcount().words . ' words' : ''
-endfunction
 
 " Python settings
 let g:python_highlight_builtins = 1
@@ -180,7 +159,6 @@ augroup END
 set ignorecase
 set smartcase
 
-
 " Split windows in a more natural way
 set splitbelow
 set splitright
@@ -196,6 +174,9 @@ nnoremap <leader>w :w<CR>
 
 " Saving file with sudo privileges in regular vim
 cmap w!! w !sudo tee > /dev/null %
+
+" Fix Y behaviour
+nmap Y y$
 
 " Toggle spellchecker
 function! ToggleSpellCheck()
@@ -213,10 +194,7 @@ nnoremap <silent> <leader>z :call ToggleSpellCheck()<CR>
 nnoremap S :%s//g<Left><Left>
 
 " Never show statusline (0) or always show statusline (2)
-set laststatus=2
-
-" Disable default mode indicator
-set noshowmode
+set laststatus=1
 
 " Disables pipe cursor when in insert mode (vim like)
 set guicursor=
