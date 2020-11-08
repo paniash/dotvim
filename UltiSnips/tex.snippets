@@ -293,6 +293,11 @@ snippet rf "Reference"
 \ref{$1} $0
 endsnippet
 
+# adding \cref
+snippet cf "Reference"
+\cref{$1} $0
+endsnippet
+
 # converts sympy code into latex
 snippet sympy "sympy block" w
 sympy $1 sympy$0
@@ -386,7 +391,7 @@ snippet . "dot product"
 endsnippet
 
 snippet int "integral"
-\int_{$1}^{$2} $3 \: d$4 $5
+\int_{$1}^{$2} $3 \: \mathrm{d}$4 $5
 endsnippet
 
 snippet ddx "ddx" A
@@ -425,4 +430,8 @@ endsnippet
 
 snippet ... "ellipsis" A
 \ldots $0
+endsnippet
+
+snippet dx "dx" iA
+\:dx $0
 endsnippet
