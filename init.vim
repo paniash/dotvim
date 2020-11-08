@@ -129,7 +129,7 @@ augroup END
 " Markdown compilation
 augroup markdown
     au!
-    au FileType markdown nmap <leader>c :w! \| :!markcompiler <c-r>%<CR>
+    au FileType markdown nmap <leader>c :w! \| :!markcompiler <c-r>%<CR><CR>
     au FileType markdown nmap <leader>v :!opout <c-r>%<CR><CR>
 augroup END
 
