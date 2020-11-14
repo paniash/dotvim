@@ -14,11 +14,10 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'SirVer/ultisnips', { 'for': 'tex' }
 Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'tpope/vim-commentary'
-Plug 'jiangmiao/auto-pairs'
 Plug 'morhetz/gruvbox'
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator', { 'for': 'python' }
 call plug#end()
 
 " Some basic stuff
@@ -107,6 +106,7 @@ augroup python_execute
     au FileType python nmap <leader>a <Plug>SlimeLineSend
     au FileType python xmap <leader>a <Plug>SlimeRegionSend
     au FileType python nmap <leader>d <Plug>SlimeSendCell
+    au FileType python nmap <leader>x :norm I#%%<Esc>
 augroup END
 
 " Slime settings
@@ -151,13 +151,12 @@ augroup pandoc_syntax
     au! FileType markdown set syntax=markdown.pandoc
 augroup END
 
-augroup pandoc_ipynb
-    au! BufNewFile,BufFilePre,BufRead *.ipynb set filetype=markdown.pandoc
-augroup END
-
 " Ignore case when searching but be case-sensitive when one or more UPPER case characters exist
 set ignorecase
 set smartcase
+
+" Breaks visual lines
+set linebreak
 
 " Split windows in a more natural way
 set splitbelow
