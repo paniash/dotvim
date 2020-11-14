@@ -26,7 +26,6 @@ set nohlsearch
 set clipboard+=unnamedplus
 set mouse=a
 
-set encoding=utf-8
 set noswapfile
 set noerrorbells
 set number relativenumber
