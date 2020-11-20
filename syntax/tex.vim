@@ -3,9 +3,10 @@
 "
 " Language:     TeX
 " Author:       Jake Lishman <jakelishman@gmail.com>
-" Last Change:  2018-07-09
+" Modified:     Ashish Panigrahi <ashish.panigrahi@protonmail.com>
+" Last Change:  2020-11-20
 " Version:      1
-" URL:          https://www.github.com/jakelishman/dotfiles
+" URL:          https://www.github.com/paniash/dotvim
 
 
 " Quit if a syntax file is already loaded.
@@ -199,7 +200,7 @@ highlight! link TeXCommandAtMacro       Special
 highlight! link TeXAccent               Special
 highlight! link TeXComment              Comment
 highlight! link TeXLength               Number
-highlight! link TeXSection              Namespace
+highlight! link TeXSection              Statement
 highlight! link TeXGroupDelimiter       Delimiter
 
 highlight! link TeXBeginEnd             TeXGroupDelimiter
