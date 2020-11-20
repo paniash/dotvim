@@ -15,7 +15,7 @@ Plug 'SirVer/ultisnips', { 'for': 'tex' }
 Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'rmd'] }
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'christoomey/vim-tmux-navigator', { 'for': 'python' }
 call plug#end()
@@ -42,11 +42,22 @@ set inccommand=nosplit
 let mapleader=","
 let maplocalleader=","
 
-" Vimtex settings
+"" Vimtex settings
 let g:tex_flavor = "latex"
 let g:vimtex_view_method = "zathura"
 let g:vimtex_view_automatic = 0
 let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_syntax_enabled = 0
+
+" Don't let vimtex autoindent things (it sucks at it).
+let g:vimtex_indent_enabled = 0
+let g:latex_indent_enabled = 0
+
+" Disable insert mode mappings
+let g:vimtex_imaps_enabled = 0
+
+" Make vimtex recognise end-of-line comments when using 'gq'.
+let g:vimtex_format_enabled = 1
 
 let g:vimtex_compiler_latexmk = {
     \ 'continuous' : 0,
@@ -106,6 +117,7 @@ augroup python_execute
     au FileType python xmap <leader>a <Plug>SlimeRegionSend
     au FileType python nmap <leader>d <Plug>SlimeSendCell
     au FileType python nmap <leader>x :norm I#%%<Esc>
+    au FileType python set textwidth=79
 augroup END
 
 " Slime settings
@@ -128,8 +140,8 @@ augroup END
 " Markdown compilation
 augroup markdown
     au!
-    au FileType markdown nmap <leader>c :w! \| :!markcompiler <c-r>%<CR><CR>
-    au FileType markdown nmap <leader>v :!opout <c-r>%<CR><CR>
+    au FileType markdown,rmd nmap <leader>c :w! \| :!markcompiler <c-r>%<CR><CR>
+    au FileType markdown,rmd nmap <leader>v :!opout <c-r>%<CR><CR>
 augroup END
 
 " Netrw settings
