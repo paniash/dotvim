@@ -69,6 +69,7 @@ augroup vimrc_tex
     au FileType tex nmap <buffer><silent> <localleader>v <plug>(vimtex-view)
     au FileType tex nmap <buffer><silent> <localleader>b <plug>(vimtex-errors)
     au FileType tex nmap <buffer><silent> <localleader>g :VimtexCountWord<CR>
+    au FileType tex nmap <buffer><silent> <space>l :!chktex %<CR>
 augroup END
 
 " UltiSnips settings
