@@ -12,12 +12,12 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'SirVer/ultisnips', { 'for': 'tex' }
-Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'rmd'] }
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
-Plug 'christoomey/vim-tmux-navigator', { 'for': 'python' }
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " Some basic stuff
