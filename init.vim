@@ -80,6 +80,7 @@ let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips']
 map <leader>u :UltiSnipsEdit<CR>
 
+
 " Colorscheme settings with personal modifications
 let g:gruvbox_bold = 1
 let g:gruvbox_contrast_dark = 'hard'
@@ -161,6 +162,7 @@ let g:slime_dont_ask_default = 1
 let g:slime_cell_delimiter = "#%%"
 let g:slime_no_mappings = 1
 
+
 " C settings
 augroup c_execute
     au!
@@ -169,12 +171,14 @@ augroup c_execute
     au FileType c nmap <leader>l :w! \| :!splint %<CR>
 augroup END
 
+
 " Markdown compilation
 augroup markdown
     au!
     au FileType markdown,rmd nmap <leader>c :w! \| :!markcompiler <c-r>%<CR><CR>
     au FileType markdown,rmd nmap <leader>v :!opout <c-r>%<CR><CR>
 augroup END
+
 
 " Netrw settings
 let g:netrw_banner = 0
