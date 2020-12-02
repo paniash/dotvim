@@ -89,6 +89,8 @@ function! AdjustGruvbox()
     highlight! EndOfBuffer gui=bold guibg=bg guifg=#7c6f64
     highlight! CursorLineNr guibg=bg
     highlight! SpecialKey guifg=#A9B4B2
+    highlight! StatusLine guifg=bg
+    highlight! StatusLineNC guifg=bg
 endfunction
 
 augroup gruvbox_colors
