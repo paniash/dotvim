@@ -210,8 +210,16 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Bindings for moving around tabs
+nnoremap <Space>l :tabnext<CR>
+nnoremap <Space>h :tabprev<CR>
+
 " Fast saving
 nnoremap <leader>w :w<CR>
+
+" Easier indentation of code blocks
+vnoremap < <gv
+vnoremap > >gv
 
 " Saving file with sudo privileges in regular vim
 cmap w!! w !sudo tee > /dev/null %
