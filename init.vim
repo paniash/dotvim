@@ -100,14 +100,36 @@ augroup END
 
 colorscheme gruvbox
 
-" Python settings
-let g:python_highlight_builtins = 1
-let g:python_highlight_exceptions = 1
-let g:python_highlight_doctests = 1
-let g:python_highlight_operators = 1
-let g:python_highlight_class_vars = 1
-let g:python_highlight_func_calls = 1
 
+" Goyo settings
+nnoremap <leader>g :Goyo<CR>
+
+let g:goyo_width = 140
+
+" Ensure :q to quit even when Goyo is active
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
+
+
+" Python settings
 let g:python3_host_prog = '/usr/bin/python3'  " Sets path for python executable for faster startup
 let g:loaded_python_provider = 0  " Disables python 2 support
 
