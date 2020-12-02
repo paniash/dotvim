@@ -141,7 +141,14 @@ augroup python_execute
     au FileType python xmap <leader>a <Plug>SlimeRegionSend
     au FileType python nmap <leader>d <Plug>SlimeSendCell
     au FileType python nmap <leader>x :norm I#%%<Esc>
-    au FileType python set textwidth=79
+    au BufNewFile,BufRead *.py
+                \ set tabstop=4 |
+                \ set softtabstop=4 |
+                \ set shiftwidth=4 |
+                \ set textwidth=79 |
+                \ set expandtab |
+                \ set smartindent |
+                \ setlocal wildignore=*.pyc
 augroup END
 
 " Slime settings
