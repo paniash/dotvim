@@ -202,6 +202,14 @@ if s:Enabled('g:python_highlight_func_calls')
   syn match pythonFunctionCall '\%([^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*\ze\%(\s*(\)'
 endif
 
+" Operators
+if s:Enabled('g:python_highlight_operators')
+  syn match pythonOperator        '\V=\|-\|+\|*\|@\|/\|%\|&\||\|^\|~\|<\|>\|!='
+endif
+
+" Errors
+syn match pythonError           '[$?]\|\([-+@%&|^~]\)\1\{1,}\|\([=*/<>]\)\2\{2,}\|\([+@/%&|^~<>]\)\3\@![-+*@/%&|^~<>]\|\*\*[*@/%&|^<>]\|=[*@/%&|^<>]\|-[+*@/%&|^~<]\|[<!>]\+=\{2,}\|!\{2,}=\+' display
+
 " Group the built-ins in the order in the 'Python Library Reference' for
 " easier comparison.
 " https://docs.python.org/2/library/constants.html
@@ -320,6 +328,7 @@ hi def link pythonConditional		Conditional
 hi def link pythonRepeat		Repeat
 hi def link pythonOperator		Operator
 hi def link pythonException		Exception
+hi def link pythonError			Error
 hi def link pythonInclude		Include
 hi def link pythonAsync			Statement
 hi def link pythonDecorator		Define
