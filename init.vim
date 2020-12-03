@@ -244,6 +244,9 @@ cmap w!! w !sudo tee > /dev/null %
 " Fix Y behaviour
 nmap Y y$
 
+" Replace ex mode with gq
+map Q gq
+
 " Toggle spellchecker
 function! ToggleSpellCheck()
     set spell!
