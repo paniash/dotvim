@@ -132,6 +132,13 @@ autocmd! User GoyoLeave call <SID>goyo_leave()
 
 
 " Python settings
+let g:python_highlight_builtins = 1
+let g:python_highlight_exceptions = 1
+let g:python_highlight_doctests = 1
+let g:python_highlight_operators = 1
+let g:python_highlight_class_vars = 1
+let g:python_highlight_func_calls = 1
+
 let g:python3_host_prog = '/usr/bin/python3'  " Sets path for python executable for faster startup
 let g:loaded_python_provider = 0  " Disables python 2 support
 
