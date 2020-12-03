@@ -225,8 +225,11 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Bindings for moving around tabs
-nnoremap <Space>l :tabnext<CR>
-nnoremap <Space>h :tabprev<CR>
+nnoremap tn :tabnew<Space>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
+nnoremap th :tabfirst<CR>
+nnoremap tl :tablast<CR>
 
 " Fast saving
 nnoremap <leader>w :w<CR>
