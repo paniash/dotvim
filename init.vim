@@ -278,3 +278,17 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Automatically deletes all trailing whitespace and newlines at end of file on save
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritepre * %s/\n\+\%$//e
+
+" Function to enable or disable statusline
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all == 1
+        let s:hidden_all = 0
+        set laststatus=2
+    else
+        let s:hidden_all = 1
+        set laststatus=1
+    endif
+endfunction
+
+nnoremap <S-h> :call ToggleHiddenAll()<CR>
