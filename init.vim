@@ -94,7 +94,7 @@ function! AdjustGruvbox()
     highlight! StatusLine guibg=#282828 guifg=#A9B4B2 gui=bold
     highlight! StatusLineNC guifg=#282828
     highlight! TabLineFill guibg=bg
-    highlight! TabLineSel guibg=bg gui=bold
+    highlight! TabLineSel guibg=bg guifg=#A9B4B2 gui=bold
 endfunction
 
 augroup gruvbox_colors
