@@ -177,15 +177,17 @@ augroup c_execute
     au!
     au FileType c nmap <leader>c :w! \| :!gcc % && ./a.out<CR>
     au FileType c nmap <leader>g :w! \| :!gcc -O -Wall -W -pedantic %<CR>
+    au FileType cpp nmap <leader>g :w! \| :!g++ -std=c++11 -O2 -Wall % -o bin<CR>
     au FileType c nmap <leader>l :w! \| :!splint %<CR>
+	au FileType c,cpp set noexpandtab
 augroup END
 
 
 " Markdown compilation
-augroup markdown
+augroup doc_compile
     au!
     au FileType markdown,rmd nmap <leader>c :w! \| :!markcompiler <c-r>%<CR><CR>
-    au FileType markdown,rmd nmap <leader>v :!opout <c-r>%<CR><CR>
+    au FileType markdown,rmd,html nmap <leader>v :!opout <c-r>%<CR><CR>
 augroup END
 
 
