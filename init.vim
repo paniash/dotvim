@@ -1,6 +1,6 @@
 " Vim configuration
 "
-" Author: Ashish Panigrahi
+" Author: Ashish Panigrahi <ashish.panigrahi@protonmail.com>
 
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
 	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
