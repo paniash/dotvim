@@ -282,15 +282,15 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritepre * %s/\n\+\%$//e
 
 " Function to enable or disable statusline
-let s:hidden_all = 0
+let s:hidden_all = 1
 function! ToggleHiddenAll()
-    if s:hidden_all == 1
-        let s:hidden_all = 0
-        set laststatus=2
-    else
+    if s:hidden_all == 0
         let s:hidden_all = 1
         set laststatus=1
+    else
+        let s:hidden_all = 0
+        set laststatus=2
     endif
 endfunction
 
-nnoremap <S-h> :call ToggleHiddenAll()<CR>
+nnoremap <Space>z :call ToggleHiddenAll()<CR>
