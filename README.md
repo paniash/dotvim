@@ -1,5 +1,5 @@
 <!-- badges: start -->
-[![Version](https://img.shields.io/badge/neovim-v0.4.4-blue)]
+![Version](https://img.shields.io/badge/neovim-v0.4.4-blue)
 <!-- badges: end -->
 
 # vimrc
