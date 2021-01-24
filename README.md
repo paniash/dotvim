@@ -1,3 +1,7 @@
+<!-- badges: start -->
+[![Version](https://img.shields.io/badge/neovim-v0.4.4-blue)]
+<!-- badges: end -->
+
 # vimrc
 This repository contains my personal config for Vim (neovim actually :P).
 
