@@ -249,6 +249,12 @@ nmap Y y$
 " Replace ex mode with gq
 map Q gq
 
+" Mappings to move lines without cluttering clipboard
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
 " Toggle spellchecker
 function! ToggleSpellCheck()
     set spell!
