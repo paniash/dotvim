@@ -1,3 +1,4 @@
+"" vim-airline/vim-airline
 "" Airline settings
 let g:airline_theme='dark'
 
@@ -14,3 +15,5 @@ let g:airline#extensions#default#layout = [
  			\ ['a', 'b', 'c'],
  			\ ['x', 'y', 'z']
  			\ ]
+
+set noshowmode

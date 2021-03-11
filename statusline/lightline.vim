@@ -1,3 +1,4 @@
+" itchyny/lightline.vim
 " Lightline settings
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
