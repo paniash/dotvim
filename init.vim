@@ -17,7 +17,8 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'rmd'] }
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/goyo.vim'
+Plug 'JuliaEditorSupport/julia-vim', { 'for': 'julia' }
+" Plug 'itchyny/lightline.vim'
 call plug#end()
 
 " Some basic stuff
@@ -91,7 +92,7 @@ function! AdjustGruvbox()
     highlight! EndOfBuffer gui=bold guibg=bg guifg=#7c6f64
     highlight! CursorLineNr guibg=bg
     highlight! SpecialKey guifg=#A9B4B2
-    highlight! StatusLine guibg=#282828 guifg=#A9B4B2 gui=bold
+    highlight! StatusLine guifg=#282828 guibg=#A9B4B2
     highlight! StatusLineNC guifg=#282828
     highlight! TabLineFill guibg=bg
     highlight! TabLineSel guibg=bg guifg=#A9B4B2 gui=bold
@@ -175,9 +176,10 @@ let g:slime_no_mappings = 1
 " C settings
 augroup c_execute
     au!
-    au FileType c nmap <leader>c :w! \| :!gcc % && ./a.out<CR>
-    au FileType c nmap <leader>g :w! \| :!gcc -O -Wall -W -pedantic %<CR>
-    au FileType cpp nmap <leader>g :w! \| :!g++ -std=c++11 -O2 -Wall % -o bin<CR>
+    au FileType c nmap <leader>c :!gcc % && ./a.out<CR>
+    au FileType c nmap <leader>g :!gcc -O -Wall -W -pedantic %<CR>
+    au FileType cpp nmap <leader>g :!g++ -std=c++17 -O2 -Wall % -o bin<CR>
+    au FileType cpp nmap <leader>c :!g++ -std=c++17 -O2 -Wall % -o bin && ./bin<CR>
     au FileType c nmap <leader>l :w! \| :!splint %<CR>
 	au FileType c,cpp set noexpandtab
 augroup END
@@ -273,11 +275,11 @@ nnoremap <silent> <leader>z :call ToggleSpellCheck()<CR>
 " Replace all aliased to S
 nnoremap S :%s//g<Left><Left>
 
+" Binding to display filetype in current buffer
+nnoremap <C-b> :echo &ft<CR>
+
 " Never show statusline (0) or always show statusline (2)
 set laststatus=1
-
-" Disables pipe cursor when in insert mode (vim like)
-set guicursor=
 
 "" Autocommands
 " Runs script to clean tex build files
@@ -309,3 +311,5 @@ function! ToggleHiddenAll()
 endfunction
 
 nnoremap <Space>z :call ToggleHiddenAll()<CR>
+" source ~/.config/nvim/statusline/lightline.vim
+" set noshowmode
