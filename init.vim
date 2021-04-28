@@ -186,20 +186,29 @@ let g:slime_no_mappings = 1
 " C settings
 augroup c_execute
     au!
-    au FileType c nmap <leader>c :!gcc % && ./a.out<CR>
-    au FileType c nmap <leader>g :!gcc -O -Wall -W -pedantic %<CR>
+    au FileType c nmap <leader>c :!gcc -lm % && ./a.out<CR>
+    au FileType c nmap <leader>g :!gcc -lm -O -Wall -Werror -Wextra -pedantic %<CR>
     au FileType cpp nmap <leader>g :!g++ -std=c++17 -O2 -Wall % -o bin<CR>
     au FileType cpp nmap <leader>c :!g++ -std=c++17 -O2 -Wall % -o bin && ./bin<CR>
     au FileType c nmap <leader>l :w! \| :!splint %<CR>
 	au FileType c,cpp set noexpandtab
 augroup END
 
+" autocmd BufNewFile,BufRead *.sld set ft=markdown
+autocmd BufNewFile,BufRead requirements.txt set ft=python
+
+" Ensure that tabs don't get converted to spaces in Makefiles
+autocmd FileType make setlocal noexpandtab
+
+" Syntax highlighting for .mbsyncrc
+autocmd BufNewFile,BufRead .mbsyncrc,mbsyncrc set filetype=mbsync
 
 " Markdown compilation
 augroup doc_compile
     au!
     au FileType markdown,rmd nmap <leader>c :w! \| :!markcompiler <c-r>%<CR><CR>
     au FileType markdown,rmd,html nmap <leader>v :!opout <c-r>%<CR><CR>
+    autocmd BufNewFile,BufRead,BufWrite *slide*.md nmap <leader>c :w! \| :!slider <c-r>%<CR><CR>
 augroup END
 
 
