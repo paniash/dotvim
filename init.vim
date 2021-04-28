@@ -297,6 +297,10 @@ nnoremap S :%s//g<Left><Left>
 " Binding to display filetype in current buffer
 nnoremap <C-b> :echo &ft<CR>
 
+" Allows text object operations with '$<string>$'
+:onoremap <silent> i$ :<C-U>normal! T$vt$<CR>
+:onoremap <silent> a$ :<C-U>normal! F$vt$<CR>
+
 " Never show statusline (0) or always show statusline (2)
 set laststatus=1
 
