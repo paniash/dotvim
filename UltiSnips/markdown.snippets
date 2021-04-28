@@ -1,0 +1,109 @@
+# inline math mode
+snippet mk "Math" wA
+$$1$ $0
+endsnippet
+
+#display math mode
+snippet dm "Math" wA
+\begin{equation*}
+$1
+\end{equation*}
+
+$0
+endsnippet
+
+snippet s "Section" b
+\section{$1}
+
+$0
+endsnippet
+
+snippet s1 "Section*" b
+\section*{$1}
+
+$0
+endsnippet
+
+snippet ss "Subsection" b
+\subsection{$1}
+
+$0
+endsnippet
+
+snippet ss1 "Subsection*" b
+\subsection*{$1}
+
+$0
+endsnippet
+
+snippet sss "Subsubsection" b
+\subsubsection{$1}
+
+$0
+endsnippet
+
+snippet sss1 "Subsubsection*" b
+\subsubsection*{$1}
+
+# renders bold text
+snippet bf "Bold"
+**$1** $0
+endsnippet
+
+# renders italic text
+snippet it "Italic"
+_$1_ $0
+endsnippet
+
+# adding equations
+snippet eq "Equation" bA
+\begin{equation}
+	$1
+\end{equation}
+$0
+endsnippet
+
+# adding \label
+snippet lb "Label"
+\label{$1} $0
+endsnippet
+
+# adding \ref
+snippet rf "Reference"
+\ref{$1} $0
+endsnippet
+
+#begins a class in LaTeX
+snippet beg "begin{} / end{}" bA
+\begin{$1}
+$0
+\end{$1}
+endsnippet
+
+#fractions
+snippet // "Fraction" i
+\\frac{$1}{$2} $0
+endsnippet
+
+snippet / "Fraction"
+\frac{$1}{$2} $0
+endsnippet
+
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wr
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+priority 1000
+snippet '^.*\)/' "() Fraction" wrA
+`!p
+stripped = match.string[:-1]
+depth = 0
+i = len(stripped) - 1
+while True:
+	if stripped[i] == ')': depth += 1
+	if stripped[i] == '(': depth -= 1
+	if depth == 0: break;
+	i -= 1
+snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
+`{$1}$0
+endsnippet

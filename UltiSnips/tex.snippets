@@ -19,7 +19,6 @@ snippet revtex "Revtex class" b
 \title{$1}
 \author{Ashish Panigrahi (1811039)}
 \affiliation{National Institute of Science Education and Research, Bhubaneswar}
-\email{ashish.panigrahi@niser.ac.in}
 \date{\today}
 \begin{abstract}
 $2
@@ -451,4 +450,13 @@ endsnippet
 
 snippet dx "dx" iA
 \:dx $0
+endsnippet
+
+snippet image "includegraphics"
+\begin{figure}[H]
+	\includegraphics[width=\columnwidth]{$1}
+	\caption{$2}
+\end{figure}
+
+$0
 endsnippet
