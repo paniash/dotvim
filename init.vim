@@ -11,11 +11,11 @@ endif
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'SirVer/ultisnips', { 'for': 'tex' }
+Plug 'SirVer/ultisnips', { 'for': ['tex', 'markdown'] }
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'rmd'] }
-Plug 'jpalardy/vim-slime', { 'for': 'python' }
+Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia'] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'JuliaEditorSupport/julia-vim', { 'for': 'julia' }
 " Plug 'itchyny/lightline.vim'
@@ -162,6 +162,16 @@ augroup python_execute
                 \ set smartindent |
                 \ setlocal wildignore=*.pyc
 augroup END
+
+augroup julia_execute
+    au!
+    au FileType julia nmap <leader>s :SlimeSend1 julia<CR>
+    au FileType julia nmap <leader>a <Plug>SlimeLineSend
+    au FileType julia xmap <leader>a <Plug>SlimeRegionSend
+    au FileType julia nmap <leader>d <Plug>SlimeSendCell<CR>
+    au FileType julia nmap <leader>x :norm I#%%<Esc>
+augroup END
+
 
 " Slime settings
 let g:slime_target = "tmux"
