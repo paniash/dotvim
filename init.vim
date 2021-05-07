@@ -89,6 +89,7 @@ let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 
 function! AdjustGruvbox()
+    highlight! Normal guibg=#1c1c1c
     highlight! EndOfBuffer gui=bold guibg=bg guifg=#7c6f64
     highlight! CursorLineNr guibg=bg
     highlight! SpecialKey guifg=#A9B4B2
