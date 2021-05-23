@@ -18,7 +18,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'rmd'] }
 Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia'] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'JuliaEditorSupport/julia-vim', { 'for': 'julia' }
-" Plug 'itchyny/lightline.vim'
 call plug#end()
 
 " Some basic stuff
@@ -195,8 +194,8 @@ augroup c_execute
 	au FileType c,cpp set noexpandtab
 augroup END
 
-" autocmd BufNewFile,BufRead *.sld set ft=markdown
 autocmd BufNewFile,BufRead requirements.txt set ft=python
+autocmd BufNewFile,BufRead *.toml set ft=toml
 
 " Ensure that tabs don't get converted to spaces in Makefiles
 autocmd FileType make setlocal noexpandtab
@@ -207,11 +206,10 @@ autocmd BufNewFile,BufRead .mbsyncrc,mbsyncrc set filetype=mbsync
 " Markdown compilation
 augroup doc_compile
     au!
-    au FileType markdown,rmd nmap <leader>c :w! \| :!markcompiler <c-r>%<CR><CR>
-    au FileType markdown,rmd,html nmap <leader>v :!opout <c-r>%<CR><CR>
-    autocmd BufNewFile,BufRead,BufWrite *slide*.md nmap <leader>c :w! \| :!slider <c-r>%<CR><CR>
+    au FileType markdown,rmd nmap <leader>c :w! \| :!markcompiler<c-r>%<CR><CR>
+    au FileType markdown,rmd,html nmap <leader>v :!opout<c-r>%<CR><CR>
+    autocmd BufNewFile,BufRead,BufWrite *slide*.md nmap <leader>c :w! \| :!slider<c-r>%<CR><CR>
 augroup END
-
 
 " Netrw settings
 let g:netrw_banner = 0
