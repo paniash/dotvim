@@ -188,8 +188,8 @@ augroup c_execute
     au!
     au FileType c nmap <leader>c :!gcc -lm % && ./a.out<CR>
     au FileType c nmap <leader>g :!gcc -lm -O -Wall -Werror -Wextra -pedantic %<CR>
-    au FileType cpp nmap <leader>g :!g++ -std=c++17 -O2 -Wall % -o bin<CR>
-    au FileType cpp nmap <leader>c :!g++ -std=c++17 -O2 -Wall % -o bin && ./bin<CR>
+    au FileType cpp nmap <leader>g :!g++ -std=c++11 -O2 -Wall % -o bin<CR>
+    au FileType cpp nmap <leader>c :!g++ -std=c++11 -O2 -Wall % -o bin && ./bin<CR>
     au FileType c nmap <leader>l :w! \| :!splint %<CR>
 	au FileType c,cpp set noexpandtab
 augroup END
@@ -329,5 +329,3 @@ function! ToggleHiddenAll()
 endfunction
 
 nnoremap <Space>z :call ToggleHiddenAll()<CR>
-" source ~/.config/nvim/statusline/lightline.vim
-" set noshowmode
