@@ -310,10 +310,6 @@ autocmd VimLeave *.tex !texclear %
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Automatically deletes all trailing whitespace and newlines at end of file on save
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritepre * %s/\n\+\%$//e
-
 " Spelling mistakes will be colored red when using spellchecker
 hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f
 hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f
