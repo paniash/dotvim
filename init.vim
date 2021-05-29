@@ -206,9 +206,9 @@ autocmd BufNewFile,BufRead .mbsyncrc,mbsyncrc set filetype=mbsync
 " Markdown compilation
 augroup doc_compile
     au!
-    au FileType markdown,rmd nmap <leader>c :w! \| :!markcompiler<c-r>%<CR><CR>
-    au FileType markdown,rmd,html nmap <leader>v :!opout<c-r>%<CR><CR>
-    autocmd BufNewFile,BufRead,BufWrite *slide*.md nmap <leader>c :w! \| :!slider<c-r>%<CR><CR>
+    au FileType markdown,rmd nmap <leader>c :!markcompiler %<CR><CR>
+    au FileType markdown,rmd,html nmap <leader>v :!opout %<CR><CR>
+    autocmd BufNewFile,BufRead,BufWrite *slide*.md nmap <leader>c :w! \| :!slider %<CR><CR>
 augroup END
 
 " Netrw settings
