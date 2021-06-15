@@ -98,7 +98,8 @@ function! AdjustGruvbox()
     highlight! EndOfBuffer gui=bold guibg=bg guifg=#7c6f64
     highlight! CursorLineNr guibg=bg
     highlight! SpecialKey guifg=#A9B4B2
-    highlight! StatusLine guifg=#282828 guibg=#A9B4B2
+    " highlight! StatusLine guifg=#282828 guibg=#A9B4B2
+    highlight! StatusLine guifg=#1c1c1c guibg=#999999 gui=bold
     highlight! StatusLineNC guifg=#282828
     highlight! TabLineFill guibg=bg
     highlight! TabLineSel guibg=bg guifg=#A9B4B2 gui=bold
