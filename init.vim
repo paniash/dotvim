@@ -49,7 +49,7 @@ let g:tex_flavor = "latex"
 let g:vimtex_view_method = "zathura"
 let g:vimtex_view_automatic = 0
 let g:vimtex_quickfix_open_on_warning = 0
-let g:vimtex_syntax_enabled = 0
+let g:vimtex_syntax_enabled = 1
 
 " Don't let vimtex autoindent things (it sucks at it).
 let g:vimtex_indent_enabled = 0
@@ -72,7 +72,11 @@ augroup vimrc_tex
     au FileType tex nmap <buffer><silent> <localleader>b <plug>(vimtex-errors)
     au FileType tex nmap <buffer><silent> <localleader>g :VimtexCountWord<CR>
     au FileType tex nmap <buffer><silent> <space>l :!chktex %<CR>
+    au FileType tex :NoMatchParen
+    au FileType tex setlocal nocursorline
+    au FileType tex set foldmethod=diff
 augroup END
+
 
 " UltiSnips settings
 let g:UltiSnipsExpandTrigger = '<tab>'
