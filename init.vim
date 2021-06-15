@@ -20,6 +20,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'JuliaEditorSupport/julia-vim', { 'for': 'julia' }
 call plug#end()
 
+let g:tex_fast = ""
+
 " Some basic stuff
 set termguicolors
 set nohlsearch
