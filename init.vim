@@ -238,6 +238,11 @@ augroup pandoc_syntax
     au! FileType markdown set syntax=markdown.pandoc
 augroup END
 
+
+" Enables code syntax highlighting in markdown (vim-pandoc-syntax)
+" Use this for default markdown syntax: let g:markdown_fenced_languages = [ 'python', 'vim' ]
+let g:pandoc#syntax#codeblocks#embeds#langs = [ 'sh', 'python', 'c', 'vim', 'julia', 'cpp' ]
+
 " Ignore case when searching but be case-sensitive when one or more UPPER case characters exist
 set ignorecase
 set smartcase
