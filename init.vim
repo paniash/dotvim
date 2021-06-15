@@ -195,13 +195,15 @@ augroup c_execute
     au!
     au FileType c nmap <leader>c :!gcc -lm % && ./a.out<CR>
     au FileType c nmap <leader>g :!gcc -lm -O -Wall -Werror -Wextra -pedantic %<CR>
-    au FileType cpp nmap <leader>g :!g++ -std=c++11 -O2 -Wall % -o bin<CR>
-    au FileType cpp nmap <leader>c :!g++ -std=c++11 -O2 -Wall % -o bin && ./bin<CR>
+    au FileType cpp nmap <leader>g :!g++ -std=c++17 -O2 -Wall % -o bin<CR>
+    au FileType cpp nmap <leader>c :!g++ -std=c++17 -O2 -Wall % -o bin && ./bin<CR>
     au FileType c nmap <leader>l :w! \| :!splint %<CR>
 	au FileType c,cpp set noexpandtab
 augroup END
 
-autocmd BufNewFile,BufRead requirements.txt set ft=python
+let g:c_syntax_for_h = 1
+
+autocmd BufNewFile,BufRead requirements*.txt set ft=python
 autocmd BufNewFile,BufRead *.toml set ft=toml
 
 " Ensure that tabs don't get converted to spaces in Makefiles
@@ -222,13 +224,13 @@ augroup END
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
-let g:netrw_browse_split = 4
+let g:netrw_browse_split = 0
 let g:netrw_altv = 1
 let g:netrw_preview = 1
 
 augroup netrw_mapping
     au!
-    au FileType * nmap <buffer><silent> <leader>nn :Lex<CR>
+    au FileType * nmap <buffer><silent> <leader>a :Lex<CR>
 augroup END
 
 " Enables vim-pandoc syntax in markdown files
