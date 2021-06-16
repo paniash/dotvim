@@ -49,14 +49,16 @@ let g:tex_flavor = "latex"
 let g:vimtex_view_method = "zathura"
 let g:vimtex_view_automatic = 0
 let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_quickfix_autojump = 1
 let g:vimtex_syntax_enabled = 1
 
 " Don't let vimtex autoindent things (it sucks at it).
 let g:vimtex_indent_enabled = 0
 let g:latex_indent_enabled = 0
 
-" Disable insert mode mappings
+" Disable insert mode mappings and normal mode mappings
 let g:vimtex_imaps_enabled = 0
+let g:vimtex_mappings_enabled = 0
 
 " Make vimtex recognise end-of-line comments when using 'gq'.
 let g:vimtex_format_enabled = 1
@@ -65,13 +67,20 @@ let g:vimtex_compiler_latexmk = {
     \ 'continuous' : 0,
     \}
 
+augroup VimCompletesMeTeX
+    autocmd!
+    autocmd FileType tex
+                \ let b:vcm_omni_pattern = g:vimtex#re#neocomplete
+augroup END
+
 augroup vimrc_tex
     au!
     au FileType tex nmap <buffer><silent> <localleader>c <plug>(vimtex-compile)
     au FileType tex nmap <buffer><silent> <localleader>v <plug>(vimtex-view)
     au FileType tex nmap <buffer><silent> <localleader>b <plug>(vimtex-errors)
-    au FileType tex nmap <buffer><silent> <localleader>g :VimtexCountWord<CR>
+    au FileType tex nmap <buffer><silent> <space>g :VimtexCountWord<CR>
     au FileType tex nmap <buffer><silent> <space>l :!chktex %<CR>
+    au FileType tex nmap <buffer><silent> <space>c <plug>(vimtex-clean)
     au FileType tex :NoMatchParen
     au FileType tex setlocal nocursorline
     au FileType tex set foldmethod=diff
