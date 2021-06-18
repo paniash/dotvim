@@ -212,14 +212,8 @@ augroup END
 
 let g:c_syntax_for_h = 1
 
-autocmd BufNewFile,BufRead requirements*.txt set ft=python
-autocmd BufNewFile,BufRead *.toml set ft=toml
-
 " Ensure that tabs don't get converted to spaces in Makefiles
 autocmd FileType make setlocal noexpandtab
-
-" Syntax highlighting for .mbsyncrc
-autocmd BufNewFile,BufRead .mbsyncrc,mbsyncrc set filetype=mbsync
 
 " Markdown compilation
 augroup doc_compile
