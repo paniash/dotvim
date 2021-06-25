@@ -220,7 +220,7 @@ augroup doc_compile
     au!
     au FileType markdown,rmd nmap <leader>c :!markcompiler %<CR><CR>
     au FileType markdown,rmd,html nmap <leader>v :!opout %<CR><CR>
-    autocmd BufNewFile,BufRead,BufWrite *slide*.md nmap <leader>c :w! \| :!slider %<CR><CR>
+    autocmd BufNewFile,BufRead,BufWrite *slide*.md,*pres*.md nmap <leader>c :w! \| :!slider %<CR><CR>
 augroup END
 
 " Netrw settings
@@ -233,7 +233,7 @@ let g:netrw_preview = 1
 
 augroup netrw_mapping
     au!
-    au FileType * nmap <buffer><silent> <leader>a :Lex<CR>
+    au FileType * nmap <buffer><silent> <Space>x :Lex<CR>
 augroup END
 
 " Enables vim-pandoc syntax in markdown files
