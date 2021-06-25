@@ -319,8 +319,10 @@ autocmd VimLeave *.tex !texclear %
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Removes newlines at the end of the file and trailing whitespaces only for non-test files
+autocmd BufWritePre * let current_pos = getpos(".")
 autocmd BufWritePre * %s/\n\+\%$//e
 autocmd BufWritePre [^\(test\)]* %s/\s\+$//e
+autocmd BufWritePre * call setpos(".", current_pos)
 
 " Spelling mistakes will be colored red when using spellchecker
 hi SpellBad cterm=underline ctermfg=203 guifg=#ff5f5f
