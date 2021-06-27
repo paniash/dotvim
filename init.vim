@@ -18,6 +18,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'rmd'] }
 Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia'] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'JuliaEditorSupport/julia-vim', { 'for': 'julia' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 let g:tex_fast = ""
@@ -325,3 +326,15 @@ augroup non_utf8_file_warn
     autocmd BufRead * if &fileencoding != 'utf-8' && expand('%:e') != 'gz'
                 \ | unsilent echomsg 'File not in UTF-8 format!' | endif
 augroup END
+
+
+" Treesitter goodies
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "dockerfile", "scss" },  -- list of language that will be disabled
+  },
+}
+EOF
