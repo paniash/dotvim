@@ -59,7 +59,7 @@ let g:latex_indent_enabled = 0
 
 " Disable insert mode mappings and normal mode mappings
 let g:vimtex_imaps_enabled = 0
-let g:vimtex_mappings_enabled = 0
+let g:vimtex_mappings_enabled = 1
 
 " Make vimtex recognise end-of-line comments when using 'gq'.
 let g:vimtex_format_enabled = 1
@@ -67,12 +67,6 @@ let g:vimtex_format_enabled = 1
 let g:vimtex_compiler_latexmk = {
     \ 'continuous' : 0,
     \}
-
-augroup VimCompletesMeTeX
-    autocmd!
-    autocmd FileType tex
-                \ let b:vcm_omni_pattern = g:vimtex#re#neocomplete
-augroup END
 
 augroup vimrc_tex
     au!
@@ -177,8 +171,8 @@ augroup c_execute
     au!
     au FileType c nmap <leader>c :!gcc -lm % && ./a.out<CR>
     au FileType c nmap <leader>g :!gcc -lm -O -Wall -Werror -Wextra -pedantic %<CR>
-    au FileType cpp nmap <leader>g :!g++ -std=c++17 -O2 -Wall % -o bin<CR>
-    au FileType cpp nmap <leader>c :!g++ -std=c++17 -O2 -Wall % -o bin && ./bin<CR>
+    au FileType cpp nmap <leader>g :!g++ -std=c++11 -O2 -Wall % -o bin<CR>
+    au FileType cpp nmap <leader>c :!g++ -std=c++11 -O2 -Wall % -o bin && ./bin<CR>
     au FileType c nmap <leader>l :w! \| :!splint %<CR>
 	au FileType c,cpp set noexpandtab
 augroup END
@@ -217,7 +211,7 @@ augroup END
 
 " Enables code syntax highlighting in markdown (vim-pandoc-syntax)
 " Use this for default markdown syntax: let g:markdown_fenced_languages = [ 'python', 'vim' ]
-let g:pandoc#syntax#codeblocks#embeds#langs = [ 'sh', 'python', 'c', 'vim', 'julia', 'cpp' ]
+let g:pandoc#syntax#codeblocks#embeds#langs = [ 'sh', 'python', 'c', 'vim', 'julia', 'cpp', 'bib', 'bash' ]
 
 " Ignore case when searching but be case-sensitive when one or more UPPER case characters exist
 set ignorecase
