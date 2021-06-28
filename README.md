@@ -2,6 +2,8 @@
 ![Version](https://img.shields.io/badge/neovim-v0.4.4-blue)
 <!-- badges: end -->
 
+## Requires neovim-nightly (>0.5.0)
+
 # vimrc
 This repository contains my personal config for Vim (neovim actually :P).
 
