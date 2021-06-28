@@ -1,6 +1,6 @@
-<!-- badges: start -->
-![Version](https://img.shields.io/badge/neovim-v0.4.4-blue)
-<!-- badges: end -->
+<!-- <!-1- badges: start -1-> -->
+<!-- ![Version](https://img.shields.io/badge/neovim-v0.5.0-blue) -->
+<!-- <!-1- badges: end -1-> -->
 
 ## Requires neovim-nightly (>0.5.0)
 
