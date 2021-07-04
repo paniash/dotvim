@@ -11,14 +11,14 @@ endif
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'SirVer/ultisnips', { 'for': ['tex', 'markdown'] }
+Plug 'SirVer/ultisnips', { 'for': ['tex', 'markdown', 'html', 'snippets'] }
 Plug 'tpope/vim-commentary'
-Plug 'morhetz/gruvbox'
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'rmd'] }
+Plug 'gruvbox-community/gruvbox'
 Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia'] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'JuliaEditorSupport/julia-vim', { 'for': 'julia' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'rmd'] }
 call plug#end()
 
 let g:tex_fast = ""
@@ -50,7 +50,7 @@ let g:tex_flavor = "latex"
 let g:vimtex_view_method = "zathura"
 let g:vimtex_view_automatic = 0
 let g:vimtex_quickfix_open_on_warning = 0
-let g:vimtex_quickfix_autojump = 1
+let g:vimtex_quickfix_autojump = 0
 let g:vimtex_syntax_enabled = 1
 
 " Don't let vimtex autoindent things (it sucks at it).
@@ -86,8 +86,8 @@ augroup END
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-Tab>'
-let g:UltiSnipsEditSplit='vertical'
-let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips']
+let g:UltiSnipsEditSplit = 'horizontal'
+let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips']
 map <leader>u :UltiSnipsEdit<CR>
 
 
@@ -211,7 +211,7 @@ augroup END
 
 " Enables code syntax highlighting in markdown (vim-pandoc-syntax)
 " Use this for default markdown syntax: let g:markdown_fenced_languages = [ 'python', 'vim' ]
-let g:pandoc#syntax#codeblocks#embeds#langs = [ 'sh', 'python', 'c', 'vim', 'julia', 'cpp', 'bib', 'bash' ]
+let g:pandoc#syntax#codeblocks#embeds#langs = [ 'sh', 'python', 'c', 'vim', 'julia', 'cpp', 'bib', 'bash', 'lua' ]
 
 " Ignore case when searching but be case-sensitive when one or more UPPER case characters exist
 set ignorecase
@@ -313,8 +313,7 @@ nnoremap <Space>z :call ToggleHiddenAll()<CR>
 
 " Display a message when the current file is not in utf-8 format.
 " Note that we need to use `unsilent` command here because of this issue:
-" https://github.com/vim/vim/issues/4379. For older Vim (version 7.4), the
-" help file are in gzip format, do not warn this.
+" https://github.com/vim/vim/issues/4379.
 augroup non_utf8_file_warn
     autocmd!
     autocmd BufRead * if &fileencoding != 'utf-8' && expand('%:e') != 'gz'
@@ -325,10 +324,10 @@ augroup END
 " Treesitter goodies
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  ignore_install = { "dockerfile" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "dockerfile", "scss" },  -- list of language that will be disabled
+    disable = { "dockerfile", "scss", "bash" },  -- list of language that will be disabled
   },
 }
 EOF
