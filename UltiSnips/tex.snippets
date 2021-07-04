@@ -79,7 +79,6 @@ snippet homework "Homework" b
 \usepackage[none]{hyphenat}
 \setlength{\parindent}{0mm}
 \setlength{\parskip}{3mm}
-\usepackage{hyperref}
 
 \title{$1 \\\ $2}
 \author{Ashish Panigrahi $|$ Roll: 1811039}
@@ -89,6 +88,33 @@ snippet homework "Homework" b
 \maketitle
 
 $0
+\end{document}
+endsnippet
+
+# IEEE paper template
+snippet ieee "IEEE" b
+\documentclass[journal]{IEEEtran}
+\usepackage[style=ieee]{biblatex}
+\bibliography{references.bib}
+\usepackage{amsmath}
+\usepackage[none]{hyphenat}
+\usepackage{authblk}
+\usepackage{amssymb}
+
+\setlength{\parskip}{3mm}
+\setlength{\parindent}{0mm}
+\usepackage{titlesec}
+\titlespacing{\subsubsection}{0pt}{0cm}{0.1cm}
+
+\begin{document}
+\title{$1}
+
+\author[1]{Ashish Panigrahi\thanks{All authors have contributed equally.}}\affil[1]{School of Physical Sciences\\NISER, Bhubaneswar}%
+
+\maketitle
+
+\printbibliography
+
 \end{document}
 endsnippet
 
@@ -191,15 +217,15 @@ snippet cvec "column vector" iA
 \begin{pmatrix} ${1:x}_${2:1}\\\\ \vdots\\\\ $1_${2:n} \end{pmatrix}
 endsnippet
 
-# # inline math mode
-# snippet mk "Math" wA
-# \( $1 \) $0
-# endsnippet
-
 # inline math mode
 snippet mk "Math" wA
-$ $1 $ $0
+\( $1 \) $0
 endsnippet
+
+# # inline math mode
+# snippet mk "Math" wA
+# $ $1 $ $0
+# endsnippet
 
 # snippet mk "Math" wA
 # $${1}$`!p
@@ -213,7 +239,7 @@ endsnippet
 #display math mode
 snippet dm "Math" wA
 \begin{equation*}
-$1
+	$1
 \end{equation*}
 
 $0
@@ -287,8 +313,8 @@ snippet und "Underline"
 endsnippet
 
 # citing!
-snippet ci "Cite"
-\cite{$1} $0
+snippet ct "Cite"
+\cite{$0}
 endsnippet
 
 # adding equations
@@ -425,7 +451,7 @@ $0
 endsnippet
 
 snippet mc "mathcal" A
-\mathcal{$1} $0
+\mathcal{$1}$0
 endsnippet
 
 snippet < "langle"
@@ -453,10 +479,14 @@ snippet dx "dx" iA
 endsnippet
 
 snippet image "includegraphics"
-\begin{figure}[H]
+\begin{figure}[h!]
 	\includegraphics[width=\columnwidth]{$1}
 	\caption{$2}
 \end{figure}
 
 $0
+endsnippet
+
+snippet sc "textsc"
+\textsc{$1} $0
 endsnippet
