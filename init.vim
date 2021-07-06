@@ -64,6 +64,9 @@ let g:vimtex_mappings_enabled = 1
 " Make vimtex recognise end-of-line comments when using 'gq'.
 let g:vimtex_format_enabled = 1
 
+" Disable folding in bib files
+let g:vimtex_fold_bib_enabled = 0
+
 let g:vimtex_compiler_latexmk = {
     \ 'continuous' : 0,
     \}
