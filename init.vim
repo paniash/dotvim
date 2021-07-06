@@ -12,7 +12,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'SirVer/ultisnips', { 'for': ['tex', 'markdown', 'html', 'snippets'] }
-Plug 'tpope/vim-commentary'
+Plug 'b3nj5m1n/kommentary'
 Plug 'gruvbox-community/gruvbox'
 Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia'] }
 Plug 'christoomey/vim-tmux-navigator'
@@ -54,8 +54,8 @@ let g:vimtex_quickfix_autojump = 0
 let g:vimtex_syntax_enabled = 1
 
 " Don't let vimtex autoindent things (it sucks at it).
-let g:vimtex_indent_enabled = 0
-let g:latex_indent_enabled = 0
+let g:vimtex_indent_enabled = 1
+let g:latex_indent_enabled = 1
 
 " Disable insert mode mappings and normal mode mappings
 let g:vimtex_imaps_enabled = 0
