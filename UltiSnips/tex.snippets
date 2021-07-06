@@ -480,6 +480,16 @@ endsnippet
 
 snippet image "includegraphics"
 \begin{figure}[h!]
+	\centering
+	\includegraphics[scale=$1]{$2}
+	\caption{$3}
+\end{figure}
+
+$0
+endsnippet
+
+snippet image1 "includegraphics1"
+\begin{figure}[h!]
 	\includegraphics[width=\columnwidth]{$1}
 	\caption{$2}
 \end{figure}
