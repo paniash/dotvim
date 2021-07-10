@@ -303,8 +303,8 @@ snippet bf "Bold"
 endsnippet
 
 # renders italic text
-snippet it "Italic"
-\textit{$1} $0
+snippet it "emphasis"
+\emph{$1} $0
 endsnippet
 
 # renders underline text
@@ -422,6 +422,10 @@ endsnippet
 
 snippet ppdv "partial derivation" A
 \frac{\partial^2 $1}{\partial $2 \partial $3} $0
+endsnippet
+
+snippet p2dv "partial derivative" A
+\frac{\partial^2 $1}{\partial^2 $2} $0
 endsnippet
 
 snippet \x "cross product"
