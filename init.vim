@@ -8,6 +8,10 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 
+lua <<EOF
+vim.g.kommentary_create_default_mappings = false
+EOF
+
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'lervag/vimtex', { 'for': 'tex' }
@@ -17,9 +21,17 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia'] }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'JuliaEditorSupport/julia-vim', { 'for': 'julia' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': ['markdown', 'rmd'] }
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'markdown' }
 call plug#end()
+
+
+" To duplicate tpope's defaults
+lua <<EOF
+vim.api.nvim_set_keymap("n", "gcc", "<Plug>kommentary_line_default", {})
+vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", {})
+vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
+EOF
 
 let g:tex_fast = ""
 
