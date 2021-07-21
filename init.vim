@@ -351,7 +351,10 @@ require'nvim-treesitter.configs'.setup {
   ignore_install = { "dockerfile" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "dockerfile", "scss", "bash" },  -- list of language that will be disabled
+    disable = { "dockerfile", "scss", "html" },  -- list of language that will be disabled
   },
 }
 EOF
+
+" Builtin on yank highlight
+au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=false}
