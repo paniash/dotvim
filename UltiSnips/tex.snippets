@@ -139,7 +139,7 @@ snippet / "Fraction"
 endsnippet
 
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wr
-\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+\\frac{`!p snip.rv = match.group(1)`}{$1} $0
 endsnippet
 
 priority 1000
@@ -154,7 +154,7 @@ while True:
 	if depth == 0: break;
 	i -= 1
 snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
-`{$1}$0
+`{$1} $0
 endsnippet
 
 priority 10
@@ -203,14 +203,6 @@ snippet bmat "bmat" iA
 $1
 \end{bmatrix}
 $0
-endsnippet
-
-snippet <= "leq" iA
-\le
-endsnippet
-
-snippet >= "geq" iA
-\ge
 endsnippet
 
 snippet cvec "column vector" iA
@@ -322,6 +314,7 @@ snippet eq "Equation" bA
 \begin{equation}
 	$1
 \end{equation}
+
 $0
 endsnippet
 
@@ -425,7 +418,7 @@ snippet ppdv "partial derivation" A
 endsnippet
 
 snippet p2dv "partial derivative" A
-\frac{\partial^2 $1}{\partial^2 $2} $0
+\frac{\partial^2 $1}{\partial $2^2} $0
 endsnippet
 
 snippet \x "cross product"
