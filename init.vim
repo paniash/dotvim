@@ -61,6 +61,7 @@ let maplocalleader=","
 "" Vimtex settings
 let g:tex_flavor = "latex"
 let g:vimtex_view_method = "zathura"
+let g:vimtex_context_pdf_viewer = "zathura"
 let g:vimtex_view_automatic = 0
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_quickfix_autojump = 0
@@ -203,6 +204,7 @@ augroup doc_compile
     au!
     au FileType markdown,rmd nmap <leader>c :!markcompiler %<CR><CR>
     au FileType markdown,rmd,html nmap <leader>v :!opout %<CR><CR>
+    au FileType markdown set conceallevel=0
     autocmd BufNewFile,BufRead,BufWrite *slide*.md,*pres*.md nmap <leader>c :w! \| :!slider %<CR><CR>
 augroup END
 
@@ -261,8 +263,8 @@ cmap w!! w !sudo tee > /dev/null %
 " Fix Y behaviour
 nmap Y y$
 
-" Replace ex mode with gq
-map Q gq
+" Disable mapping
+nnoremap Q <nop>
 
 " Toggle spellchecker
 function! ToggleSpellCheck()
@@ -295,6 +297,17 @@ autocmd VimLeave *.tex !texclear %
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Disable a lot of unnecessary internal plugins
+let g:loaded_2html_plugin = 1
+let g:loaded_getscriptPlugin = 1
+let g:loaded_gzip = 1
+let g:loaded_logipat = 1
+let g:loaded_rrhelper = 1
+let g:loaded_spellfile_plugin = 1
+let g:loaded_tarPlugin = 1
+let g:loaded_vimballPlugin = 1
+let g:loaded_zipPlugin = 1
 
 " Removes newlines at the end of the file and trailing whitespaces only for non-test files
 autocmd BufWritePre * let current_pos = getpos(".")
