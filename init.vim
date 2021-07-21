@@ -34,6 +34,7 @@ vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
 EOF
 
 let g:tex_fast = ""
+set shell=/bin/sh
 
 " Some basic stuff
 set termguicolors
